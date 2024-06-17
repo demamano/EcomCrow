@@ -29,7 +29,7 @@ const createCampaign = async (req, res) => {
   
   try {
     const campaign =  Campaign.create({
-        owner: req.body.owner,
+        name: req.body.name,
         title: req.body.title,
         description: req.body.description,
         target: req.body.target,
@@ -60,8 +60,8 @@ const updateCampaign = async (req, res) => {
         return res.status(404).json({ message: 'Campaign not found' });
         }
     
-        if (req.body.owner != null) {
-        campaign.owner = req.body.owner;
+        if (req.body.name != null) {
+        campaign.name = req.body.name;
         }
         if (req.body.title != null) {
         campaign.title = req.body.title;

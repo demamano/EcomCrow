@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 // Define the campaign schema
 const campaignSchema = new Schema({
-  owner: {
+  name : {
     type: String,
     required: true,
     // match: /^0x[a-fA-F0-9]{40}$/  
