@@ -27,14 +27,19 @@ const getCampaign = async (req, res) => {
 // POST /api/campaigns
 const createCampaign = async (req, res) => {
   
+  const { name, title, description, target, deadline, image } = req.body;
+  if (!name || !title || !description || !target || !deadline || !image) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
   try {
     const campaign =  Campaign.create({
-        name: req.body.name,
-        title: req.body.title,
-        description: req.body.description,
-        target: req.body.target,
-        deadline: req.body.deadline,
-        image: req.body.image
+        name,
+        title,
+        description,
+        target,
+        deadline,
+        image,
       });
       console.log(campaign);  
       if (campaign) {
