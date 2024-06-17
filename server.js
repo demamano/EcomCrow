@@ -22,6 +22,7 @@ app.use("/orders", require("./routes/orderRoutes"));
 app.use("/analytics", require("./routes/analyticRoutes"));
 app.use("/transactions", require("./routes/transactionRoutes"));
 app.use("/drivers/ratings", require("./routes/ratingRoutes"));
+// cro routes
 app.use("/cro",require("./routes/campaignRoutes"));
 
 // Notification routes
