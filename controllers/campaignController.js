@@ -1,5 +1,5 @@
 // campaign
-const Campaign = require('../models/campaign');
+const Campaign  = require('../models/campaign');
 
 // GET /api/campaigns
 const getCampaigns = async (req, res) => {
@@ -29,11 +29,12 @@ const createCampaign = async (req, res) => {
   
   const { name, title, description, target, deadline, image } = req.body;
   if (!name || !title || !description || !target || !deadline || !image) {
-    return res.status(400).json({ message: 'All fields are required' });
+    res.status(400).json({ message: 'All fields are required' });
+    throw new Error("Please add all the required fields");
   }
 
   try {
-    const campaign =  Campaign.create({
+    const campaign = await Campaign.create({
         name,
         title,
         description,
